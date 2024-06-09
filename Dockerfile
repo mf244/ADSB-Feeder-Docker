@@ -1,13 +1,13 @@
 FROM debian:10.3-slim
 
-LABEL maintainer="me@mnunes.com"
+LABEL maintainer="mfloyd244@gmail.com"
 
 ENV S6_VERSION=2.7.2.2-3 \
     RTLSDR_VERSION=0.6-1 \
-    DUMP1090_VERSION=v3.8.0 \
-    PIAWARE_VERSION=3.8.0 \
-    FR24FEED_VERSION=1.0.24-5 \
-    PFCLIENT_VERSION=4.1.1
+    DUMP1090_VERSION=v9.0 \
+    PIAWARE_VERSION=3.8.0 \ 
+    FR24FEED_VERSION=1.0.48-0 \
+    PFCLIENT_VERSION=5.0.161
 
 ENV MAPLAT=45.0 \
     MAPLON=9.0 \
@@ -52,7 +52,7 @@ RUN apt-get update && \
     cd /piaware_builder && \
     dpkg -i piaware_${PIAWARE_VERSION}_*.deb && \
     rm -rf /piaware_builder && \
-    cd / && wget https://repo-feed.flightradar24.com/linux_x86_64_binaries/fr24feed_${FR24FEED_VERSION}_amd64.tgz && \
+    cd / && wget https://repo-feed.flightradar24.com/linux_binaries/fr24feed_${FR24FEED_VERSION}_amd64.tgz && \
     tar zxvf fr24feed_${FR24FEED_VERSION}_amd64.tgz && \
     rm fr24feed_${FR24FEED_VERSION}_amd64.tgz && \
     mv /fr24feed_amd64/fr24feed /usr/bin && \
