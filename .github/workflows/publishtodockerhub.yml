@@ -13,4 +13,5 @@ jobs:
           docker build . -t mf244/adsb-feeder-docker:latest
       - name: publish
         run: |
+          docker login -u mf244 -p ${{ secrets.DOCKER_HUB_TOKEN }}
           docker push mf244/adsb-feeder-docker:latest
