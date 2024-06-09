@@ -1,8 +1,6 @@
 #!/bin/bash
 
 sed -i "/fr24key/c\fr24key=\"${FR24KEY}\"" /etc/fr24feed.ini
-sed -i "/flightaware-user/c\flightaware-user ${PIAWAREUSER}" /etc/piaware.conf
-sed -i "/flightaware-password/c\flightaware-password ${PIAWAREPASS}" /etc/piaware.conf
 sed -i "/feeder-id/c\feeder-id ${PIAWAREKEY}" /etc/piaware.conf
 sed -i "/latitude/c\  \"latitude\": \"${PFLATITUDE}\"," /etc/pfclient.json
 sed -i "/longitude/c\  \"longitude\": \"${PFLONGITUDE}\"," /etc/pfclient.json
